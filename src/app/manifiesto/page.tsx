@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, Stethoscope, AlertTriangle, ShieldAlert } from 'lucide-react';
 import { NewsletterForm } from '@/components/NewsletterForm';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://dr-bilis-blog.vercel.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://drbilis.com';
 
 export const metadata = {
   title: '¿Quién es el Dr. Bilis? // Manifiesto Clínico',

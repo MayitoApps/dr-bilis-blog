@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { getAllPosts } from '@/data/posts';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://dr-bilis-blog.vercel.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://drbilis.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();

@@ -24,7 +24,8 @@ export async function POST(request: Request) {
     }
 
     const resend = new Resend(apiKey);
-    const fromAddress = process.env.RESEND_FROM_EMAIL || 'Dr. Bilis <onboarding@resend.dev>';
+    const fromAddress = process.env.RESEND_FROM_EMAIL || 'Dr. Bilis <recetas@drbilis.com>';
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://drbilis.com';
 
     // Enviar correo de bienvenida con Resend
     const { data, error } = await resend.emails.send({
@@ -63,7 +64,7 @@ export async function POST(request: Request) {
               </p>
 
               <div style="margin: 25px 0;">
-                <a href="https://dr-bilis-blog.vercel.app" style="background: #0c0c0c; color: #ffffff; text-decoration: none; font-family: 'Courier New', monospace; font-size: 13px; font-weight: bold; padding: 12px 20px; display: inline-block; border: 2px solid #0c0c0c; text-transform: uppercase; letter-spacing: 0.5px;">
+                <a href="${siteUrl}" style="background: #0c0c0c; color: #ffffff; text-decoration: none; font-family: 'Courier New', monospace; font-size: 13px; font-weight: bold; padding: 12px 20px; display: inline-block; border: 2px solid #0c0c0c; text-transform: uppercase; letter-spacing: 0.5px;">
                   Entrar al Blog del Dr. Bilis →
                 </a>
               </div>
@@ -71,13 +72,14 @@ export async function POST(request: Request) {
               <div style="border-top: 2px dashed #0c0c0c; margin-top: 30px; padding-top: 18px; font-family: 'Courier New', monospace; font-size: 12px; color: #555555; line-height: 1.5;">
                 <strong style="color: #0c0c0c;">— Dr. Bilis</strong><br/>
                 <em>"La verdad no está aquí para caerte bien."</em><br/>
-                <a href="https://dr-bilis-blog.vercel.app" style="color: #0c0c0c; text-decoration: underline;">dr-bilis-blog.vercel.app</a>
+                <a href="${siteUrl}" style="color: #0c0c0c; text-decoration: underline;">drbilis.com</a>
               </div>
             </div>
           </div>
         </div>
       `
     });
+
 
     if (error) {
       console.warn('Aviso de Resend al enviar email:', error);
