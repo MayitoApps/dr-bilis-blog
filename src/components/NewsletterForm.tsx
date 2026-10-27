@@ -82,46 +82,28 @@ export function NewsletterForm() {
             <span>{feedbackMessage}</span>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-              <div style={{
-                position: 'relative',
-                flex: '1 1 280px',
-                display: 'flex',
-                alignItems: 'center'
-              }}>
-                <Mail size={18} style={{ position: 'absolute', left: '1rem', color: '#666' }} />
+          <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+            <div className="newsletter-form-group">
+              <div className="newsletter-input-wrapper">
+                <Mail size={22} />
                 <input
                   type="email"
                   required
-                  placeholder="ingresa_tu_email_aqui@algo.com"
+                  placeholder="ingresa_tu_email_aqui@dominio.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={status === 'loading'}
-                  style={{
-                    width: '100%',
-                    padding: '0.85rem 1rem 0.85rem 2.8rem',
-                    background: '#1a1a1c',
-                    color: '#ffffff',
-                    border: '2px solid #444',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '16px',
-                    outline: 'none',
-                    borderRadius: 0,
-                    minHeight: '48px',
-                    boxSizing: 'border-box'
-                  }}
+                  className="newsletter-input"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="brutal-btn"
-                style={{ padding: '0.85rem 1.5rem', whiteSpace: 'nowrap', minHeight: '48px' }}
+                className="newsletter-submit"
               >
                 {status === 'loading' ? 'EXPIDIENDO RECETA...' : 'RECETARME'}
-                <ArrowRight size={16} />
+                <ArrowRight size={18} />
               </button>
             </div>
 

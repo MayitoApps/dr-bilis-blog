@@ -448,6 +448,105 @@ a {
   box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
+/* Newsletter Input & Submit Action Bar */
+.newsletter-form-group {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  margin: 1.75rem 0 1rem;
+  border: 3.5px solid #ffffff;
+  box-shadow: 6px 6px 0px var(--accent-toxic);
+  background: #ffffff;
+}
+
+.newsletter-input-wrapper {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+}
+
+.newsletter-input-wrapper svg {
+  position: absolute;
+  left: 1.25rem;
+  color: #0c0c0c;
+  pointer-events: none;
+}
+
+.newsletter-input {
+  width: 100%;
+  min-height: 60px;
+  padding: 1rem 1.25rem 1rem 3.5rem;
+  background: #ffffff;
+  color: #0c0c0c;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  outline: none;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+.newsletter-input::placeholder {
+  color: #666666;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.newsletter-submit {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem 2.25rem;
+  min-height: 60px;
+  background: var(--accent-toxic);
+  color: #0c0c0c;
+  border: none;
+  border-left: 3.5px solid #0c0c0c;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  white-space: nowrap;
+  transition: all 0.12s ease;
+  user-select: none;
+}
+
+.newsletter-submit:hover {
+  background: #0c0c0c;
+  color: #ffffff;
+}
+
+.newsletter-submit:active {
+  background: var(--accent-danger);
+  color: #ffffff;
+}
+
+@media (max-width: 720px) {
+  .newsletter-form-group {
+    flex-direction: column;
+    border: none;
+    box-shadow: none;
+    gap: 0.85rem;
+    background: transparent;
+  }
+  .newsletter-input-wrapper {
+    border: 3px solid #ffffff;
+    box-shadow: 4px 4px 0px var(--accent-toxic);
+  }
+  .newsletter-submit {
+    border: 3px solid #ffffff;
+    box-shadow: 4px 4px 0px var(--accent-toxic);
+    width: 100%;
+  }
+}
+
 /* Modal */
 .modal-overlay {
   position: fixed;
