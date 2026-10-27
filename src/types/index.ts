@@ -9,6 +9,7 @@ export interface Post {
   tag: string;
   summary: string;
   punchlineQuote: string;
+  coverImage?: string;
   content: {
     dictamen: string;
     sections: {

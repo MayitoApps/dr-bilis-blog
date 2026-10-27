@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const ogUrl = `/api/og?title=${encodeURIComponent(post.title)}&code=${encodeURIComponent(post.code)}&tag=${encodeURIComponent(post.tag)}`;
   const canonicalUrl = `${SITE_URL}/post/${post.slug}`;
+  const absoluteImageUrl = post.coverImage ? `${SITE_URL}${post.coverImage}` : `${SITE_URL}${ogUrl}`;
 
   return {
     title: `${post.code}: ${post.title}`,
@@ -61,9 +62,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       tags: [post.tag, post.category, 'Dr. Bilis'],
       images: [
         {
-          url: ogUrl,
+          url: absoluteImageUrl,
           width: 1200,
-          height: 630,
+          height: 675,
           alt: post.title,
         },
       ],
@@ -72,7 +73,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: `${post.code}: ${post.title} — Dr. Bilis`,
       description: post.punchlineQuote,
-      images: [ogUrl],
+      images: [absoluteImageUrl],
     },
   };
 }
@@ -194,6 +195,45 @@ export default async function PostPage({ params }: Props) {
           {post.subtitle}
         </p>
       </header>
+
+      {/* Cover Image / Evidencia Fotográfica */}
+      {post.coverImage && (
+        <div style={{
+          marginBottom: '2rem',
+          border: 'var(--border-heavy)',
+          boxShadow: 'var(--shadow-lg)',
+          overflow: 'hidden',
+          background: '#0c0c0c',
+          position: 'relative'
+        }}>
+          <img
+            src={post.coverImage}
+            alt={post.title}
+            style={{
+              width: '100%',
+              height: 'auto',
+              display: 'block',
+              aspectRatio: '16 / 9',
+              objectFit: 'cover'
+            }}
+          />
+          <div style={{
+            background: '#0c0c0c',
+            color: 'var(--accent-toxic)',
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.72rem',
+            fontWeight: 800,
+            padding: '0.45rem 1rem',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            borderTop: '2px solid #000'
+          }}>
+            <span>[ ARCHIVO FOTOGRÁFICO CLÍNICO // {post.code} ]</span>
+            <span style={{ color: '#ffffff' }}>DRBILIS.COM</span>
+          </div>
+        </div>
+      )}
 
       {/* Social Share Toolbar (Top) */}
       <ShareBar post={post} />

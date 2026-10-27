@@ -274,6 +274,33 @@ export default function HomePage() {
                     </div>
                   </div>
 
+                  {post.coverImage && (
+                    <Link
+                      href={`/post/${post.slug}`}
+                      style={{
+                        display: 'block',
+                        marginBottom: '1rem',
+                        overflow: 'hidden',
+                        border: '2px solid #000',
+                        boxShadow: '3px 3px 0 #000',
+                        background: '#0c0c0c',
+                      }}
+                    >
+                      <img
+                        src={post.coverImage}
+                        alt={post.title}
+                        style={{
+                          width: '100%',
+                          height: 'auto',
+                          aspectRatio: '16 / 9',
+                          objectFit: 'cover',
+                          display: 'block',
+                          transition: 'transform 0.2s ease',
+                        }}
+                      />
+                    </Link>
+                  )}
+
                   <h3 style={{
                     fontSize: '1.45rem',
                     fontWeight: 900,

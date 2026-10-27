@@ -16,6 +16,7 @@ export const POSTS: Post[] = [
     tag: '#PONTE_LA_CAMISETA',
     summary: 'Te contrataron como analista, pero a los seis meses ya eres diseñador, redactor, psicólogo del jefe y mensajero ocasional. Todo por el mismo sueldo y con la promesa de que "pronto vendrán cosas mejores".',
     punchlineQuote: 'Ponerse la camiseta es una metáfora preciosa hasta que te das cuenta de que la tela te la descuentan de la nómina y la sangre la pones tú.',
+    coverImage: '/images/posts/dx-001.jpg',
     content: {
       dictamen: 'Cuadro agudo de delirio gerencial. El empleador sufre de esquizofrenia presupuestaria: exige resultados de multinacional de Wall Street mientras financia la operación con el presupuesto de una kermesse de primaria.',
       sections: [
@@ -60,6 +61,7 @@ export const POSTS: Post[] = [
     tag: '#VIBRAR_ALTO_MIS_POLAINAS',
     summary: 'Te dicen que manifiestes abundancia mientras ellos manifiestan depósitos bancarios vendiéndote cursos de afirmaciones matutinas. El negocio redondo de hacerte sentir culpable hasta de tu propio cansancio.',
     punchlineQuote: 'El pensamiento positivo es el anestésico perfecto para una sociedad rota: en vez de exigir que arreglen el mundo, te enseñan a sonreír mientras se te cae el techo encima.',
+    coverImage: '/images/posts/dx-002.jpg',
     content: {
       dictamen: 'Intoxicación aguda por positivismo tóxico. El paciente ha sustituido el pensamiento crítico por mantras de autoayuda escritos por personas que heredaron sus departamentos y creen que madrugar a las 5:00 AM es el único secreto del éxito.',
       sections: [
@@ -101,6 +103,7 @@ export const POSTS: Post[] = [
     tag: '#GURUS_DEL_PROMPT',
     summary: 'Ayer eran traders de Bitcoin, anteayer gurús de NFTs, y hoy te venden un PDF con "los 50 prompts secretos que te harán ganar 10,000 dólares al mes". El circo tecnológico cambia de carpa, pero los payasos siguen siendo los mismos.',
     punchlineQuote: 'La inteligencia artificial no nos va a quitar el empleo; nos lo van a quitar los directores ejecutivos mediocres que creen que un prompt de tres líneas puede reemplazar a un humano con criterio.',
+    coverImage: '/images/posts/dx-003.jpg',
     content: {
       dictamen: 'Psicosis tecnológica inducida por FOMO (miedo a quedarse fuera). Los pacientes experimentan alucinaciones donde una red neuronal que no sabe cuántas "r" tiene la palabra "fresa" va a construir utopías financieras automáticas mientras ellos duermen en la playa.',
       sections: [
@@ -143,6 +146,7 @@ export const POSTS: Post[] = [
     tag: '#TERAPIA_DE_TIKTOK',
     summary: 'Ahora nadie te deja porque ya no le gustas; te dejan porque "están honrando sus propios límites" y "priorizando su espacio energético". El nuevo glosario clínico para esconder la cobardía sentimental.',
     punchlineQuote: 'Hemos patologizado tanto las emociones humanas que ahora cualquier desacuerdo es una "red flag" y tener ganas de huir se bautizó como "cuidar mi paz mental".',
+    coverImage: '/images/posts/dx-004.jpg',
     content: {
       dictamen: 'Neurosis relacional contemporánea. Los pacientes han sustituido la honestidad brutal por un dialecto pseudo-terapéutico para romper corazones con la frialdad protocolaria de un memorándum de despido de recursos humanos.',
       sections: [
