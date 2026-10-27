@@ -144,11 +144,6 @@ export default function RootLayout({
               <div>
                 © 2026 DR. BILIS — TODOS LOS DESACUERDOS RESERVADOS.
               </div>
-              <div style={{ display: 'flex', gap: '0.75rem' }}>
-                <span className="badge-tag dark" style={{ border: '1px solid #444', fontSize: '0.65rem' }}>
-                  HECHO PARA GITHUB + VERCEL
-                </span>
-              </div>
             </div>
           </div>
         </footer>
