@@ -67,19 +67,24 @@ export function NewsletterForm() {
         </p>
 
         {status === 'success' ? (
-          <div style={{
-            background: 'var(--accent-toxic)',
-            color: '#000',
-            border: '2px solid #fff',
-            padding: '1rem 1.25rem',
-            fontFamily: 'var(--font-mono)',
-            fontWeight: 700,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.75rem'
-          }}>
-            <CheckCircle2 size={20} />
-            <span>{feedbackMessage}</span>
+          <div className="newsletter-success-box">
+            <div className="newsletter-success-header">
+              <span className="newsletter-success-badge">[ RECETA EXPEDIDA // REVISA TU CORREO ]</span>
+              <CheckCircle2 size={24} color="#0c0c0c" />
+            </div>
+            <h3 className="newsletter-success-title">
+              {feedbackMessage || 'Prescripción médica confirmada.'}
+            </h3>
+            <p className="newsletter-success-desc">
+              Te enviamos tu dosis de realidad a la bandeja de entrada. Si no la ves en 1 minuto, checa en spam o promociones (los algoritmos corporativos le temen a la verdad).
+            </p>
+            <button
+              type="button"
+              onClick={() => { setStatus('idle'); setEmail(''); }}
+              className="newsletter-reset-btn"
+            >
+              ← Registrar otro correo
+            </button>
           </div>
         ) : (
           <form onSubmit={handleSubmit} style={{ width: '100%' }}>

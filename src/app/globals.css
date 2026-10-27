@@ -550,6 +550,70 @@ a {
   }
 }
 
+/* Newsletter Success State */
+.newsletter-success-box {
+  background: var(--accent-toxic);
+  color: #0c0c0c;
+  border: 3.5px solid #ffffff;
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.4);
+  padding: 1.5rem 1.75rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.newsletter-success-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.newsletter-success-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  background: #0c0c0c;
+  color: var(--accent-toxic);
+  padding: 0.25rem 0.6rem;
+}
+
+.newsletter-success-title {
+  font-size: 1.3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  color: #0c0c0c;
+  letter-spacing: -0.02em;
+}
+
+.newsletter-success-desc {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #1a1a1a;
+  margin: 0 0 1.25rem;
+}
+
+.newsletter-reset-btn {
+  background: #0c0c0c;
+  color: #ffffff;
+  border: 2px solid #0c0c0c;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.55rem 1.15rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.newsletter-reset-btn:hover {
+  background: #ffffff;
+  color: #0c0c0c;
+}
+
 /* Modal */
 .modal-overlay {
   position: fixed;

@@ -30,25 +30,49 @@ export async function POST(request: Request) {
     const { data, error } = await resend.emails.send({
       from: fromAddress,
       to: [email],
-      subject: '[RECETA #001] Bienvenido al consultorio del Dr. Bilis',
+      subject: 'Tu primera dosis de realidad sin filtro — Dr. Bilis',
       html: `
-        <div style="background-color: #f2f1eb; font-family: 'Courier New', Courier, monospace; padding: 30px; color: #0c0c0c;">
-          <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 3px solid #0c0c0c; padding: 25px; box-shadow: 6px 6px 0px #0c0c0c;">
-            <div style="background: #e1ff00; border: 2px solid #0c0c0c; padding: 6px 12px; font-weight: bold; display: inline-block; margin-bottom: 20px;">
-              FICHA CLÍNICA // CONFIDENCIAL
+        <div style="background-color: #f2f1eb; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 40px 15px; color: #0c0c0c;">
+          <!-- Preheader invisible para vista previa en bandeja de entrada -->
+          <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;">
+            No esperes libros de autoayuda ni palmaditas en la espalda. Solo verdades sin anestesia.
+          </div>
+          
+          <div style="max-width: 580px; margin: 0 auto; background: #ffffff; border: 3px solid #0c0c0c; box-shadow: 6px 6px 0px #0c0c0c; overflow: hidden;">
+            <!-- Barra superior estilo expediente -->
+            <div style="background: #0c0c0c; color: #e1ff00; padding: 10px 20px; font-family: 'Courier New', monospace; font-size: 11px; font-weight: bold; letter-spacing: 1px;">
+              DR. BILIS // CONSULTORIO EDITORIAL // FICHA CONFIDENCIAL
             </div>
-            <h1 style="font-family: Arial, sans-serif; font-size: 24px; margin: 0 0 15px 0; text-transform: uppercase;">
-              Has sido ingresado al expediente.
-            </h1>
-            <p style="font-size: 15px; line-height: 1.6;">
-              No sé qué esperabas encontrar aquí. No regalamos libros de motivación, no te vamos a decir que "todo pasa por algo", ni te venderemos cursos para manifestar dinero en pijamas.
-            </p>
-            <p style="font-size: 15px; line-height: 1.6;">
-              Cada semana recibirás una dosis de realidad cruda, diagnósticos de la sociedad moderna y opiniones sin filtro. Si te ofendes, hay un botón de desuscripción al final. A nadie le importará si te vas.
-            </p>
-            <div style="border-top: 2px dashed #0c0c0c; margin-top: 25px; padding-top: 15px; font-size: 12px; color: #666;">
-              — Dr. Bilis // <a href="https://dr-bilis-blog.vercel.app" style="color: #0c0c0c; font-weight: bold;">drbilis.com</a><br/>
-              <em>La verdad no está aquí para caerte bien.</em>
+
+            <!-- Contenido -->
+            <div style="padding: 30px 25px;">
+              <div style="background: #e1ff00; border: 2px solid #0c0c0c; padding: 4px 10px; font-family: 'Courier New', monospace; font-size: 12px; font-weight: bold; display: inline-block; margin-bottom: 18px;">
+                ESTADO: PACIENTE REGISTRADO
+              </div>
+
+              <h1 style="font-size: 24px; font-weight: 900; line-height: 1.2; margin: 0 0 16px 0; text-transform: uppercase; color: #0c0c0c; letter-spacing: -0.5px;">
+                Has sido ingresado al expediente.
+              </h1>
+
+              <p style="font-size: 15px; line-height: 1.6; color: #222222; margin: 0 0 16px 0;">
+                No sé qué esperabas encontrar aquí. No regalamos libros de motivación barata, no te vamos a decir que <em>"todo pasa por algo"</em>, ni te venderemos cursos para manifestar riqueza en pijamas.
+              </p>
+
+              <p style="font-size: 15px; line-height: 1.6; color: #222222; margin: 0 0 24px 0;">
+                Cada semana recibirás en tu correo una dosis de realidad cruda: diagnósticos de la sociedad moderna, disección del absurdo cotidiano y opiniones sin filtro. Si te ofendes, hay un enlace de desuscripción al final. A nadie le importará si te vas.
+              </p>
+
+              <div style="margin: 25px 0;">
+                <a href="https://dr-bilis-blog.vercel.app" style="background: #0c0c0c; color: #ffffff; text-decoration: none; font-family: 'Courier New', monospace; font-size: 13px; font-weight: bold; padding: 12px 20px; display: inline-block; border: 2px solid #0c0c0c; text-transform: uppercase; letter-spacing: 0.5px;">
+                  Entrar al Blog del Dr. Bilis →
+                </a>
+              </div>
+
+              <div style="border-top: 2px dashed #0c0c0c; margin-top: 30px; padding-top: 18px; font-family: 'Courier New', monospace; font-size: 12px; color: #555555; line-height: 1.5;">
+                <strong style="color: #0c0c0c;">— Dr. Bilis</strong><br/>
+                <em>"La verdad no está aquí para caerte bien."</em><br/>
+                <a href="https://dr-bilis-blog.vercel.app" style="color: #0c0c0c; text-decoration: underline;">dr-bilis-blog.vercel.app</a>
+              </div>
             </div>
           </div>
         </div>
@@ -61,7 +85,7 @@ export async function POST(request: Request) {
       // aún así confirmamos la suscripción al usuario para una experiencia impecable.
       return NextResponse.json({
         success: true,
-        message: 'Prescripción médica aceptada. Bienvenido al expediente.',
+        message: 'Prescripción médica confirmada. Revisa tu bandeja de entrada.',
         notice: error.message
       });
     }
