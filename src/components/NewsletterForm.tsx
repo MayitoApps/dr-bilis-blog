@@ -40,7 +40,7 @@ export function NewsletterForm() {
 
   return (
     <div className="newsletter-banner">
-      <div style={{ maxWidth: '640px' }}>
+      <div style={{ width: '100%' }}>
         <div className="badge-tag toxic" style={{ marginBottom: '1rem' }}>
           [ LA RECETA SEMANAL // BOLETÍN SIN CENSURA ]
         </div>

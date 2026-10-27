@@ -66,7 +66,7 @@ export default function HomePage() {
         <p style={{
           fontSize: 'clamp(1rem, 2vw, 1.15rem)',
           color: '#2a2a2a',
-          maxWidth: '750px',
+          width: '100%',
           lineHeight: 1.65,
           marginBottom: '2rem'
         }}>
@@ -180,7 +180,7 @@ export default function HomePage() {
               fontSize: '1.05rem',
               color: '#333',
               lineHeight: 1.7,
-              maxWidth: '720px',
+              width: '100%',
               marginBottom: '2rem'
             }}>
               Actualmente no hay diagnósticos públicos archivados en este registro. El doctor está observando la comedia involuntaria de la sociedad moderna y redactando los primeros casos forenses.
@@ -190,7 +190,7 @@ export default function HomePage() {
               background: 'var(--accent-muted)',
               border: 'var(--border-base)',
               padding: '1.25rem',
-              maxWidth: '680px',
+              width: '100%',
               marginBottom: '2rem'
             }}>
               <div style={{
