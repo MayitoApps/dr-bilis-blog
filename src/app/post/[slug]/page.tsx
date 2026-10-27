@@ -12,6 +12,8 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://dr-bilis-blog.vercel.app';
+
 export async function generateStaticParams() {
   const posts = getAllPosts();
   return posts.map((post) => ({
@@ -30,15 +32,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const ogUrl = `/api/og?title=${encodeURIComponent(post.title)}&code=${encodeURIComponent(post.code)}&tag=${encodeURIComponent(post.tag)}`;
+  const canonicalUrl = `${SITE_URL}/post/${post.slug}`;
 
   return {
-    title: `${post.code}: ${post.title} // Dr. Bilis`,
+    title: `${post.code}: ${post.title}`,
     description: post.summary,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    keywords: [
+      post.title,
+      post.category,
+      post.tag,
+      'Dr. Bilis',
+      'Diagnóstico social',
+      'Crítica laboral',
+      'Cinismo',
+    ],
     openGraph: {
-      title: `${post.code}: ${post.title}`,
+      title: `${post.code}: ${post.title} // Dr. Bilis`,
       description: `"${post.punchlineQuote}" — Lee el diagnóstico completo en el consultorio del Dr. Bilis.`,
+      url: canonicalUrl,
       type: 'article',
-      authors: ['Dr. Bilis'],
+      publishedTime: post.date,
+      authors: [`${SITE_URL}/manifiesto`],
+      section: post.category,
+      tags: [post.tag, post.category, 'Dr. Bilis'],
       images: [
         {
           url: ogUrl,
@@ -69,15 +88,49 @@ export default async function PostPage({ params }: Props) {
   const currentIndex = allPosts.findIndex((p) => p.slug === post.slug);
   const nextPost = allPosts.length > 1 ? allPosts[(currentIndex + 1) % allPosts.length] : null;
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/post/${post.slug}`,
+    },
+    headline: post.title,
+    description: post.summary,
+    image: [`${SITE_URL}/api/og?title=${encodeURIComponent(post.title)}&code=${encodeURIComponent(post.code)}&tag=${encodeURIComponent(post.tag)}`],
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      '@type': 'Person',
+      name: 'Dr. Bilis',
+      url: `${SITE_URL}/manifiesto`,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Dr. Bilis',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/icon`,
+      },
+    },
+    articleSection: post.category,
+    keywords: [post.tag, post.category, 'Dr. Bilis', 'Opinión cínica'],
+  };
+
   return (
-    <article className="container-narrow" style={{ paddingTop: '2rem' }}>
-      {/* Back link */}
-      <div style={{ marginBottom: '1.5rem' }}>
-        <Link
-          href="/"
-          className="badge-tag"
-          style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none' }}
-        >
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <article className="container-narrow" style={{ paddingTop: '2rem' }}>
+        {/* Back link */}
+        <div style={{ marginBottom: '1.5rem' }}>
+          <Link
+            href="/"
+            className="badge-tag"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none' }}
+          >
           <ArrowLeft size={14} /> VOLVER AL ARCHIVO GENERAL
         </Link>
       </div>
@@ -295,5 +348,6 @@ export default async function PostPage({ params }: Props) {
         <NewsletterForm />
       </div>
     </article>
+    </>
   );
 }

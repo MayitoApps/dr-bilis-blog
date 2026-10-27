@@ -3,23 +3,59 @@ import './globals.css';
 import Link from 'next/link';
 import { Skull, AlertOctagon, HeartPulse, Activity } from 'lucide-react';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://dr-bilis-blog.vercel.app';
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://drbilis.vercel.app'),
-  title: 'DR. BILIS // Diagnóstico Social Sin Anestesia',
-  description: 'Comentario cínico, directo y despiadado sobre la vida moderna, relaciones, tecnología y el circo corporativo.',
-  keywords: ['Dr Bilis', 'Blog cínico', 'Crítica social', 'Humor negro', 'Opinión directa'],
-  authors: [{ name: 'Dr. Bilis' }],
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'DR. BILIS // Diagnóstico Social Sin Anestesia',
+    template: '%s // Dr. Bilis',
+  },
+  description: 'Comentario cínico, directo y despiadado sobre la vida moderna, relaciones, explotación laboral, tecnología y el circo corporativo.',
+  keywords: [
+    'Dr. Bilis',
+    'Doctor Bilis',
+    'Blog cínico',
+    'Crítica laboral',
+    'Explotación laboral',
+    'Ponerse la camiseta',
+    'Humor negro',
+    'Opinión directa',
+    'Sociedad contemporánea',
+    'Cultura corporativa',
+    'Autoayuda basura',
+    'Diagnóstico social',
+  ],
+  authors: [{ name: 'Dr. Bilis', url: `${SITE_URL}/manifiesto` }],
+  creator: 'Dr. Bilis',
+  publisher: 'Dr. Bilis',
+  alternates: {
+    canonical: SITE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     title: 'DR. BILIS // Diagnóstico Social Sin Anestesia',
-    description: 'La verdad no está aquí para caerte bien. Comentario mordaz y directo sobre la realidad contemporánea.',
-    url: 'https://drbilis.vercel.app',
+    description: 'La verdad no está aquí para caerte bien. Comentario mordaz y directo sobre la comedia involuntaria de la sociedad moderna.',
+    url: SITE_URL,
     siteName: 'Dr. Bilis',
+    locale: 'es_MX',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'DR. BILIS // Diagnóstico Social',
     description: 'La verdad no está aquí para caerte bien.',
+    creator: '@DrBilis',
   },
 };
 
@@ -28,8 +64,39 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: 'Dr. Bilis // Diagnóstico Social Sin Anestesia',
+        description: 'Comentario cínico, directo y mordaz sobre la vida moderna, relaciones y trabajo.',
+        inLanguage: 'es-MX',
+        publisher: {
+          '@id': `${SITE_URL}/#author`,
+        },
+      },
+      {
+        '@type': 'Person',
+        '@id': `${SITE_URL}/#author`,
+        name: 'Dr. Bilis',
+        url: `${SITE_URL}/manifiesto`,
+        jobTitle: 'Analista Forense y Crítico Cultural',
+        description: 'Observador implacable de la ridiculez humana y el autoengaño contemporáneo.',
+      },
+    ],
+  };
+
   return (
     <html lang="es">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body>
         {/* Running Ticker Tape */}
         <div className="ticker-wrapper">

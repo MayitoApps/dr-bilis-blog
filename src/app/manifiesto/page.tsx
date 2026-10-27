@@ -3,9 +3,19 @@ import Link from 'next/link';
 import { ArrowLeft, Stethoscope, AlertTriangle, ShieldAlert } from 'lucide-react';
 import { NewsletterForm } from '@/components/NewsletterForm';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://dr-bilis-blog.vercel.app';
+
 export const metadata = {
   title: '¿Quién es el Dr. Bilis? // Manifiesto Clínico',
   description: 'Conoce al autor: un cínico desencantado que comenta sobre la sociedad contemporánea con humor negro y cero compasión.',
+  alternates: {
+    canonical: `${SITE_URL}/manifiesto`,
+  },
+  openGraph: {
+    title: '¿Quién es el Dr. Bilis? // Manifiesto Clínico',
+    description: 'Conoce al autor: un cínico desencantado que comenta sobre la sociedad contemporánea con humor negro y cero compasión.',
+    url: `${SITE_URL}/manifiesto`,
+  },
 };
 
 export default function ManifiestoPage() {
