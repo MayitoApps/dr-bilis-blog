@@ -47,7 +47,35 @@ export async function POST(request: Request) {
 
             <!-- Contenido -->
             <div style="padding: 30px 25px;">
-              <div style="background: #e1ff00; border: 2px solid #0c0c0c; padding: 4px 10px; font-family: 'Courier New', monospace; font-size: 12px; font-weight: bold; display: inline-block; margin-bottom: 18px;">
+              <!-- Cabecera con Foto de Perfil / Logotipo -->
+              <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; margin-bottom: 22px; border-bottom: 2px dashed #0c0c0c; padding-bottom: 18px;">
+                <tr>
+                  <td style="width: 64px; vertical-align: middle;">
+                    <img 
+                      src="${siteUrl}/drbilis-logo.jpg" 
+                      alt="Dr. Bilis" 
+                      width="58" 
+                      height="58" 
+                      style="display: block; width: 58px; height: 58px; border: 2.5px solid #0c0c0c; box-shadow: 3px 3px 0px #0c0c0c; background-color: #e1ff00;" 
+                    />
+                  </td>
+                  <td style="vertical-align: middle; padding-left: 14px;">
+                    <div style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 19px; font-weight: 900; letter-spacing: -0.5px; text-transform: uppercase; color: #0c0c0c; line-height: 1.1;">
+                      DR. BILIS
+                    </div>
+                    <div style="font-family: 'Courier New', monospace; font-size: 11px; font-weight: bold; color: #555555; margin-top: 4px; letter-spacing: 0.5px;">
+                      CONSULTORIO // DIAGNÓSTICO SOCIAL
+                    </div>
+                  </td>
+                  <td style="vertical-align: middle; text-align: right;">
+                    <div style="background: #e1ff00; border: 2px solid #0c0c0c; padding: 4px 8px; font-family: 'Courier New', monospace; font-size: 11px; font-weight: bold; display: inline-block;">
+                      PACIENTE #094
+                    </div>
+                  </td>
+                </tr>
+              </table>
+
+              <div style="background: #ff3333; color: #ffffff; border: 2px solid #0c0c0c; padding: 4px 10px; font-family: 'Courier New', monospace; font-size: 11px; font-weight: bold; display: inline-block; margin-bottom: 18px;">
                 ESTADO: PACIENTE REGISTRADO
               </div>
 
