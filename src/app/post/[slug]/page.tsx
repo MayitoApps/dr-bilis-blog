@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { getPostBySlug, getAllPosts } from '@/data/posts';
 import { ShareBar } from '@/components/ShareBar';
 import { ReactionBox } from '@/components/ReactionBox';
+import { CommentsSection } from '@/components/CommentsSection';
 import { NewsletterForm } from '@/components/NewsletterForm';
 import { ArrowLeft, ArrowRight, Clock, Calendar, AlertCircle } from 'lucide-react';
 
@@ -302,6 +303,9 @@ export default async function PostPage({ params }: Props) {
       <div style={{ marginTop: '2rem' }}>
         <ShareBar post={post} />
       </div>
+
+      {/* Public Comments Section */}
+      <CommentsSection postSlug={post.slug} postCode={post.code} />
 
       {/* Next Article Card */}
       {nextPost && (

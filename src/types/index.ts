@@ -25,3 +25,12 @@ export interface ReactionCounts {
   crudaRealidad: number;
   necesitabaEsto: number;
 }
+
+export interface Comment {
+  id: string;
+  post_slug: string;
+  author_name: string;
+  author_tag?: string;
+  content: string;
+  created_at: string;
+}
