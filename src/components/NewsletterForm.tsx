@@ -89,7 +89,7 @@ export function NewsletterForm() {
                 <input
                   type="email"
                   required
-                  placeholder="ingresa_tu_email_aqui@dominio.com"
+                  placeholder="Pon tu correo cucho"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={status === 'loading'}
