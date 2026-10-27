@@ -67,7 +67,7 @@ export default async function PostPage({ params }: Props) {
 
   const allPosts = getAllPosts();
   const currentIndex = allPosts.findIndex((p) => p.slug === post.slug);
-  const nextPost = allPosts[(currentIndex + 1) % allPosts.length];
+  const nextPost = allPosts.length > 1 ? allPosts[(currentIndex + 1) % allPosts.length] : null;
 
   return (
     <article className="container-narrow" style={{ paddingTop: '2rem' }}>

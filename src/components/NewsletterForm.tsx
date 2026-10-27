@@ -105,9 +105,11 @@ export function NewsletterForm() {
                     color: '#ffffff',
                     border: '2px solid #444',
                     fontFamily: 'var(--font-mono)',
-                    fontSize: '0.9rem',
+                    fontSize: '16px',
                     outline: 'none',
-                    borderRadius: 0
+                    borderRadius: 0,
+                    minHeight: '48px',
+                    boxSizing: 'border-box'
                   }}
                 />
               </div>
@@ -116,7 +118,7 @@ export function NewsletterForm() {
                 type="submit"
                 disabled={status === 'loading'}
                 className="brutal-btn"
-                style={{ padding: '0.85rem 1.5rem', whiteSpace: 'nowrap' }}
+                style={{ padding: '0.85rem 1.5rem', whiteSpace: 'nowrap', minHeight: '48px' }}
               >
                 {status === 'loading' ? 'EXPIDIENDO RECETA...' : 'RECETARME'}
                 <ArrowRight size={16} />
