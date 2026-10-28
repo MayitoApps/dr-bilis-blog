@@ -51,12 +51,24 @@ export const metadata: Metadata = {
     siteName: 'Dr. Bilis',
     locale: 'es_MX',
     type: 'website',
+    images: [
+      {
+        url: `${SITE_URL}/api/og?title=${encodeURIComponent('Diagnóstico Social Sin Anestesia')}&code=DX-OFICIAL&tag=%23DR_BILIS`,
+        width: 1200,
+        height: 630,
+        alt: 'Dr. Bilis - Diagnóstico Social Sin Anestesia',
+        type: 'image/png',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'DR. BILIS // Diagnóstico Social',
     description: 'La verdad no está aquí para caerte bien.',
     creator: '@DrBilis',
+    images: [
+      `${SITE_URL}/api/og?title=${encodeURIComponent('Diagnóstico Social Sin Anestesia')}&code=DX-OFICIAL&tag=%23DR_BILIS`,
+    ],
   },
 };
 
@@ -76,7 +88,19 @@ export default function RootLayout({
         description: 'Comentario cínico, directo y mordaz sobre la vida moderna, relaciones y trabajo.',
         inLanguage: 'es-MX',
         publisher: {
-          '@id': `${SITE_URL}/#author`,
+          '@id': `${SITE_URL}/#organization`,
+        },
+      },
+      {
+        '@type': 'Organization',
+        '@id': `${SITE_URL}/#organization`,
+        name: 'Dr. Bilis',
+        url: SITE_URL,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${SITE_URL}/icon`,
+          width: 512,
+          height: 512,
         },
       },
       {

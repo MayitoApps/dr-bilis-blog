@@ -56,7 +56,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: `"${post.punchlineQuote}" — Lee el diagnóstico completo en el consultorio del Dr. Bilis.`,
       url: canonicalUrl,
       type: 'article',
-      publishedTime: post.date,
+      publishedTime: new Date(post.date).toISOString(),
+      modifiedTime: new Date(post.date).toISOString(),
       authors: [`${SITE_URL}/manifiesto`],
       section: post.category,
       tags: [post.tag, post.category, 'Dr. Bilis'],
@@ -64,8 +65,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         {
           url: absoluteImageUrl,
           width: 1200,
-          height: 675,
+          height: 630,
           alt: post.title,
+          type: 'image/png',
         },
       ],
     },
@@ -74,6 +76,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${post.code}: ${post.title} — Dr. Bilis`,
       description: post.punchlineQuote,
       images: [absoluteImageUrl],
+      creator: '@DrBilis',
     },
   };
 }
@@ -86,44 +89,101 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
+  const canonicalUrl = `${SITE_URL}/post/${post.slug}`;
+  const ogUrl = `/api/og?title=${encodeURIComponent(post.title)}&code=${encodeURIComponent(post.code)}&tag=${encodeURIComponent(post.tag)}`;
+  const absoluteImageUrl = post.coverImage ? `${SITE_URL}${post.coverImage}` : `${SITE_URL}${ogUrl}`;
+
   const allPosts = getAllPosts();
   const currentIndex = allPosts.findIndex((p) => p.slug === post.slug);
   const nextPost = allPosts.length > 1 ? allPosts[(currentIndex + 1) % allPosts.length] : null;
 
-  const articleJsonLd = {
+  // Approximate word count for schema
+  const totalWords = [
+    post.title,
+    post.summary,
+    post.content.dictamen,
+    ...post.content.sections.flatMap((s) => s.paragraphs),
+    post.content.veredictoFinal,
+  ]
+    .join(' ')
+    .split(/\s+/).length;
+
+  const jsonLdGraph = {
     '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `${SITE_URL}/post/${post.slug}`,
-    },
-    headline: post.title,
-    description: post.summary,
-    image: [`${SITE_URL}/api/og?title=${encodeURIComponent(post.title)}&code=${encodeURIComponent(post.code)}&tag=${encodeURIComponent(post.tag)}`],
-    datePublished: post.date,
-    dateModified: post.date,
-    author: {
-      '@type': 'Person',
-      name: 'Dr. Bilis',
-      url: `${SITE_URL}/manifiesto`,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Dr. Bilis',
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/icon`,
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${canonicalUrl}/#breadcrumb`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Inicio',
+            item: SITE_URL,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Expedientes',
+            item: `${SITE_URL}/#archivo`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: post.title,
+            item: canonicalUrl,
+          },
+        ],
       },
-    },
-    articleSection: post.category,
-    keywords: [post.tag, post.category, 'Dr. Bilis', 'Opinión cínica'],
+      {
+        '@type': 'BlogPosting',
+        '@id': `${canonicalUrl}/#article`,
+        isPartOf: {
+          '@type': 'Blog',
+          '@id': `${SITE_URL}/#blog`,
+          name: 'Dr. Bilis // Diagnóstico Social',
+        },
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': canonicalUrl,
+        },
+        headline: post.title,
+        description: post.summary,
+        image: [absoluteImageUrl],
+        datePublished: new Date(post.date).toISOString(),
+        dateModified: new Date(post.date).toISOString(),
+        inLanguage: 'es-MX',
+        wordCount: totalWords,
+        articleSection: post.category,
+        keywords: [post.tag, post.category, 'Dr. Bilis', 'Opinión cínica', 'Diagnóstico social'],
+        author: {
+          '@type': 'Person',
+          '@id': `${SITE_URL}/#author`,
+          name: 'Dr. Bilis',
+          url: `${SITE_URL}/manifiesto`,
+          jobTitle: 'Analista Forense y Crítico Cultural',
+        },
+        publisher: {
+          '@type': 'Organization',
+          '@id': `${SITE_URL}/#organization`,
+          name: 'Dr. Bilis',
+          url: SITE_URL,
+          logo: {
+            '@type': 'ImageObject',
+            url: `${SITE_URL}/icon`,
+            width: 512,
+            height: 512,
+          },
+        },
+      },
+    ],
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
       />
       <article className="container-narrow" style={{ paddingTop: '2rem' }}>
         {/* Back link */}
