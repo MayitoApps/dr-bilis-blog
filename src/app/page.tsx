@@ -6,7 +6,7 @@ import { POSTS } from '@/data/posts';
 import { NewsletterForm } from '@/components/NewsletterForm';
 import { ArrowRight, AlertTriangle, Clock, Stethoscope, ShieldAlert, Sparkles } from 'lucide-react';
 
-const CATEGORIES = ['TODOS', 'AUTOAYUDA', 'TRABAJO', 'TECH', 'RELACIONES'] as const;
+const CATEGORIES = ['TODOS', 'CULTURA', 'TRABAJO', 'TECH', 'RELACIONES', 'AUTOAYUDA'] as const;
 
 export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState<string>('TODOS');

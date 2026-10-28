@@ -16,6 +16,11 @@ export interface Post {
       heading: string;
       paragraphs: string[];
       cynicalNote?: string;
+      image?: {
+        src: string;
+        alt: string;
+        caption?: string;
+      };
     }[];
     veredictoFinal: string;
   };

@@ -6,6 +6,62 @@ import { Post } from '@/types';
  */
 export const POSTS: Post[] = [
   {
+    slug: 'la-caida-de-guadalupe-taddei-ine-renuncia-corrupcion',
+    code: 'DX-005',
+    title: 'La renuncia de Guadalupe Taddei: de la tómbola democrática a la puerta trasera del INE',
+    subtitle: 'Cómo la guardiana de la pureza electoral terminó arrinconada por adjudicaciones directas, empresas consentidas y el clásico virus del presupuesto público.',
+    date: '2026-10-28',
+    readTime: '5 MIN',
+    category: 'CULTURA',
+    tag: '#EL_INE_NO_SE_TOCA_PERO_SE_FACTURA',
+    summary: 'Llegó ungida por una tómbola legislativa, prometió la salvación de la austeridad republicana y sale por la puerta de servicio entre expedientes de la Auditoría Superior y empresas de compadres. La historia de siempre: en México no se combate la corrupción, solo se rota de beneficiario.',
+    punchlineQuote: 'En la política mexicana nadie llega a transformar el sistema; solo llegan a cambiar el nombre del titular en las facturas de adjudicación directa.',
+    coverImage: '/images/posts/dx-005.jpg',
+    content: {
+      dictamen: 'Necrosis ética institucional fulminante. La paciente presentaba delirios de pureza presupuestaria que colapsaron súbitamente al contacto con licitaciones a modo y empresas de allegados. Pronóstico: amnesia judicial colectiva en menos de seis meses.',
+      sections: [
+        {
+          heading: '1. El milagro de la tómbola y la comedia de la pureza republicana',
+          paragraphs: [
+            'Recordemos la apoteosis de abril de 2023: la democracia mexicana decidió que el método más científico para designar a la máxima autoridad electoral de la nación no era el consenso de talentos, sino sacar un papelito de una urna de cristal en San Lázaro. De la suerte divina emergió Guadalupe Taddei, presentada ante las masas como la antítesis de los viejos "burócratas dorados" del INE.',
+            'Prometieron bajarse el sueldo, barrer las escaleras de arriba hacia abajo y desmantelar el dispendio electoral. Pero la administración pública tiene una ley de gravedad inviolable: cuando le entregas una chequera con miles de millones de pesos a un funcionario convencido de su propia superioridad moral, los principios franciscanos tardan exactamente tres quincenas en evaporarse.',
+            'Lo que comenzó como una gesta de redención institucional se convirtió en un déjà vu grotesco donde los discursos sobre "el pueblo sabio" se financiaban con adjudicaciones directas sin pudor alguno.'
+          ],
+          image: {
+            src: '/images/posts/dx-005-sede-ine.jpg',
+            alt: 'Sede central del Instituto Nacional Electoral en Tlalpan',
+            caption: 'Instalaciones centrales del INE en Tlalpan: el templo sagrado donde la fe democrática se traduce en contratos millonarios y sobreprecios de confianza.'
+          },
+          cynicalNote: 'Axioma del Dr. Bilis: Cuando un funcionario te jura que "no son iguales a los de antes", tiene toda la razón: son exactamente los mismos, pero con peor ortografía en los expedientes de compras.'
+        },
+        {
+          heading: '2. Corporativo ZEG y Cajas Graf: la familia y los compadres no se equivocan',
+          paragraphs: [
+            'El libreto nunca decepciona por su falta de originalidad. Los reportajes de CNN y las pesquisas periodísticas destaparon lo que en cualquier país con Estado de derecho provocaría renuncias en cadena: contratos multimillonarios para material electoral otorgados por la vía rápida a empresas vinculadas a colaboradores cercanos, familiares y operadores políticos de Sonora.',
+            'Cajas electorales de cartón a precio de estuche Louis Vuitton, triangulaciones de recursos que harían palidecer a un contador de Wall Street y una Auditoría Superior de la Federación que, por una vez en la vida, no pudo mirar hacia otro lado ante el descaro de las cifras.',
+            'La primera línea de defensa fue el gastado estribillo de siempre: "es una campaña mediática de los conservadores para desestabilizar la transformación". Desgraciadamente para su equipo legal, los sellos de hacienda y los números de cuenta no tienen ideología partidista: o cuadran o son un delito.'
+          ],
+          cynicalNote: 'Regla de adquisiciones gubernamentales: En México no existe el conflicto de interés; existe únicamente el milagro providencial de que tus primos abran empresas justo en el giro que tu secretaría necesita contratar de urgencia.'
+        },
+        {
+          heading: '3. La herradura solitaria y el arte de la renuncia preventiva',
+          paragraphs: [
+            'El tiro de gracia no vino de la oposición moralina, sino del mismo Palacio Nacional. En cuanto Claudia Sheinbaum soltó en la mañanera que "en el INE no debe haber ninguna sombra de corrupción", el cronómetro de Taddei marcó cero. En el ecosistema político mexicano, cuando el poder supremo te pide "transparentar", lo que te está entregando es una pluma para que firmes tu renuncia antes de que la Fiscalía te invite a declarar.',
+            'El comunicado final fue una joya de la hipocresía burocrática: afirmó dimitir "por la estabilidad del Instituto y la salud de la democracia". Traducido del dialecto oficial al español forense: "me cacharon con las manos en el cajón de las licitaciones y prefiero irme a mi casa con pensión a esperar que un juez federal me congele las cuentas bancarias".',
+            'La mítica "Herradura de la Democracia" se quedó vacía una mañana de octubre, dejando una silla ejecutiva que ahora huele a auditoría inconclusa y a material electoral facturado con sobreprecio.'
+          ],
+          image: {
+            src: '/images/posts/dx-005-herradura.jpg',
+            alt: 'La sala de sesiones del Consejo General del INE con el sillón presidencial vacío',
+            caption: 'La Sala del Consejo General del INE tras el portazo: el sillón presidencial desierto mientras los expedientes de la ASF ocupan el lugar de los discursos solemnes.'
+          },
+          cynicalNote: 'Diagnóstico de salida: En la burocracia nacional nadie renuncia jamás por vergüenza; renuncian cuando el presupuesto de abogados particulares supera el finiquito de liquidación.'
+        }
+      ],
+      veredictoFinal: 'Guadalupe Taddei pasará a los libros de texto como otra lección profiláctica para la ciudadanía ingenua: las instituciones no se pudren por las tres letras de su logotipo, sino por la incorregible voracidad de los mortales que se sientan en su trono. Puedes refundar el árbitro electoral mil veces, inventar tómbolas con niños cantores y prometer austeridad franciscana; pero mientras el control del presupuesto público quede en manos de mesías de cartón, la democracia seguirá siendo una rifa donde el pueblo pone los votos y los amigos del poder cobran los cheques.'
+    }
+  },
+  {
     slug: 'ponte-la-camiseta-explotacion-laboral-sueldo-minimo',
     code: 'DX-001',
     title: '"Ponte la camiseta": el truco más viejo para que hagas el trabajo de tres por el sueldo de uno',

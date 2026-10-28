@@ -331,6 +331,44 @@ export default async function PostPage({ params }: Props) {
               <p key={pIdx}>{pText}</p>
             ))}
 
+            {section.image && (
+              <figure style={{
+                margin: '2rem 0',
+                border: 'var(--border-heavy)',
+                boxShadow: 'var(--shadow-md)',
+                background: '#0c0c0c',
+                overflow: 'hidden'
+              }}>
+                <img
+                  src={section.image.src}
+                  alt={section.image.alt}
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    display: 'block',
+                    aspectRatio: '16 / 9',
+                    objectFit: 'cover'
+                  }}
+                />
+                {section.image.caption && (
+                  <figcaption style={{
+                    background: '#111111',
+                    color: '#dddddd',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.75rem',
+                    padding: '0.65rem 1rem',
+                    borderTop: '2px solid #000',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.6rem'
+                  }}>
+                    <span style={{ color: 'var(--accent-toxic)', fontWeight: 800 }}>[EVIDENCIA FOTOGRÁFICA]</span>
+                    <span>{section.image.caption}</span>
+                  </figcaption>
+                )}
+              </figure>
+            )}
+
             {section.cynicalNote && (
               <div className="cynical-callout">
                 {section.cynicalNote}
